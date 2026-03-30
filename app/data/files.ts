@@ -1,0 +1,71 @@
+export const files = [
+  {
+    tags: ["React 19.2.3", "Next.js 16.1.6", "Bun"],
+    code: `
+      FROM oven/bun:1.1-alpine AS deps
+      WORKDIR /app
+
+      RUN bun install --frozen-lockfile
+
+      FROM oven/bun:1.1-alpine AS builder
+      WORKDIR /app
+
+      COPY --from=deps /app/node_modules ./node_modules
+      COPY . .
+
+      ENV NEXT_TELEMETRY_DISABLED 1
+
+      RUN bun run build
+
+      FROM oven/bun:1.1-alpine AS runner
+      WORKDIR /app
+
+      ENV NODE_ENV production
+      ENV NEXT_TELEMETRY_DISABLED 1
+
+      RUN addgroup --system --gid 1001 nodejs
+      RUN adduser --system --uid 1001 nextjs
+
+      COPY --from=builder /app/public ./public
+      COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+      COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+      USER nextjs
+
+      EXPOSE 3000
+
+      ENV PORT 3000
+
+      ENV HOSTNAME "0.0.0.0"
+
+      CMD ["bun", "server.js"]
+    `,
+  },
+  {
+    tags: ["Vue", "Nuxt 4.4.2", "bun"],
+    code: `
+      FROM oven/bun:1 AS build
+      WORKDIR /app
+
+      COPY package.json bun.lock ./
+
+      RUN bun install --frozen-lockfile --ignore-scripts
+
+      COPY . .
+
+      RUN bun --bun run build
+
+      FROM oven/bun:1 AS production
+      WORKDIR /app
+
+      COPY --from=build /app/.output /app
+
+      RUN cd /app/server && \
+          rm -rf node_modules && \
+          bun install --ignore-scripts
+
+      EXPOSE 3000/tcp
+      ENTRYPOINT [ "bun", "/app/server/index.mjs" ]
+    `,
+  },
+];

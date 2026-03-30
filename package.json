@@ -14,11 +14,15 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
+    "@lucide/vue": "^1.7.0",
+    "@tailwindcss/vite": "^4.2.2",
     "nuxt": "^4.4.2",
+    "tailwindcss": "^4.2.2",
     "vue": "^3.5.30",
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
+    "nuxt-shiki": "^0.3.2",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0"
   },
