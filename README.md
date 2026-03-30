@@ -56,6 +56,6 @@ bun fmt:check
 Built with a modern stack for maximum performance and developer experience:
 * **Framework**: [Nuxt 4](https://nuxt.com/)
 * **Runtime**: [Bun](https://bun.sh/)
-* **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [Nuxt UI](https://ui.nuxt.com/)
+* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 * **Highlighting**: [Shiki](https://shiki.style/) (VS Code engine)
 * **Linting & Formatting**: [Oxc](https://oxc.rs/)
