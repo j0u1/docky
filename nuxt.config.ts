@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   modules: ["nuxt-shiki"],
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["@vue/devtools-core", "@vue/devtools-kit", "@lucide/vue"],
+    },
   },
   shiki: {
     defaultTheme: "catppuccin-mocha",
@@ -15,7 +18,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Docky",
-      meta: [{ name: "description", content: "" }],
+      meta: [{ name: "description", content: "A search engine for production-ready web Dockerfiles" }],
     },
   },
 });
