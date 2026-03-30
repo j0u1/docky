@@ -1,56 +1,59 @@
-# 🐳 Docky (Доки)
+# 🐳 Docky
 
-**Docky** — это легковесный поисковик по готовым Docker-конфигурациям для любых стеков через поиск. Забудьте о копировании кривых конфигов из ИИ.
+**Docky** is a lightweight search engine for production-ready Docker configurations across any stack. Stop copying broken AI-generated configs and start using battle-tested templates.
 
 ---
-## Быстрый старт (Development)
 
-### Установка зависимостей:
+🇷🇺 [Русский](docs/README_ru.md)
+
+## Quick Start (Development)
+
+### Install dependencies:
 
 ```bash
 bun install
 ```
 
-### Запуск локального сервера:
+### Start local development server:
 
 ``` bash
 bun run dev
 ```
 
-### Проверить проект на ошибки:
+### Lint for errors:
 
 ``` bash
 bunx lint
 ```
 
-### Принять изменения:
+### Apply lint fixes:
 
 ``` bash
 bun lint:fix
 ```
 
-### Форматировать файлы:
+### Format files:
 
 ``` bash
 bun fmt
 ```
 
-### Проверка форматирования без записи изменений:
+### Check formatting without changes:
 
 ``` bash
 bun fmt:check
 ```
 ---
 
-## Функционал
+## Features
 
-* **Поиск**: Поиск по языку или фреймворку
-* **Копирование**: Один клик до копирования файла
+* **Smart Search**: Find configurations by language, runtime, or framework
+* **One-Click Copy**: Get your Dockerfile into the clipboard instantly
 
 
-## Стек проекта
+## Tech Stack
 
-Проект построен на современном стеке для максимальной скорости:
+Built with a modern stack for maximum performance and developer experience:
 * **Framework**: [Nuxt 4](https://nuxt.com/)
 * **Runtime**: [Bun](https://bun.sh/)
 * **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [Nuxt UI](https://ui.nuxt.com/)
