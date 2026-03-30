@@ -68,4 +68,28 @@ export const files = [
       ENTRYPOINT [ "bun", "/app/server/index.mjs" ]
     `,
   },
+  {
+    tags: ["React 19.2.0", "Vite 7.3.1", "bun"],
+    code: `
+    FROM oven/bun:1.1-alpine AS build
+
+    WORKDIR /app
+
+    COPY package.json bun.lock ./
+
+    RUN bun install
+
+    COPY . .
+
+    RUN bun run build
+
+    FROM nginx:stable-alpine
+
+    COPY --from=build /app/dist /usr/share/nginx/html
+
+    EXPOSE 80
+
+    CMD ["nginx", "-g", "daemon off;"]
+    `,
+  },
 ];
