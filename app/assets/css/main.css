@@ -9,9 +9,15 @@
     --code: #1e1e2e;
 }
 
+::section {
+    color: var(--foreground);
+    background-color: var(--accent);
+}
+
 body {
     background-color: var(--bg);
     color: var(--foreground);
+    caret-color: var(--accent);
 }
 
 @theme {
