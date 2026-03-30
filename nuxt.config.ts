@@ -19,6 +19,9 @@ export default defineNuxtConfig({
     head: {
       title: "Docky",
       meta: [{ name: "description", content: "A search engine for production-ready web Dockerfiles" }],
+      htmlAttrs: {
+        lang: "en",
+      },
     },
   },
 });
