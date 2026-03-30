@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "vue", "unicorn"],
+  "categories": {
+    "correctness": "error",
+    "perf": "warn",
+    "pedantic": "off"
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "typescript/no-explicit-any": "warn"
+  },
+  "settings": {
+    "vitest": {
+      "typecheck": true
+    }
+  },
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": [".nuxt", ".output", "node_modules", "dist"]
+}
