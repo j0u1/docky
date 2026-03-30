@@ -9,7 +9,7 @@
     --code: #1e1e2e;
 }
 
-::section {
+:section {
     color: var(--foreground);
     background-color: var(--accent);
 }
