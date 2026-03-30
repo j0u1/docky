@@ -5,8 +5,8 @@ const search = defineModel({ type: String });
 </script>
 
 <template>
-    <main class="flex flex-col items-center justify-center gap-4 py-12">
-        <h1 class="text-3xl font-medium">🐋 Docky</h1>
+    <main class="flex flex-col items-center justify-center gap-4 pt-12 pb-8">
+        <HeroTitle />
         <p class="text-additional">Dockerfile snippets for popular frameworks and tools</p>
         <div class="flex items-center outline outline-secondary bg-bg rounded-xl py-2 px-3 gap-2.5 w-full max-w-md focus-within:outline-accent duration-200 transition-all">
             <SearchIcon class="size-4 text-additional" />
