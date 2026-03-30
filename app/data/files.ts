@@ -92,4 +92,36 @@ export const files = [
     CMD ["nginx", "-g", "daemon off;"]
     `,
   },
+  {
+    tags: ["Vue", "Nuxt 3.14", "pnpm"],
+    code: `
+    FROM node:20-alpine AS base
+    WORKDIR /app
+
+    ENV PNPM_HOME="/pnpm"
+    ENV PATH="$PNPM_HOME:$PATH"
+    RUN corepack prepare pnpm@10.0.0 --activate
+    RUN corepack enable
+
+    FROM base AS devdeps
+    COPY ./package.json ./pnpm-lock.yaml ./
+    RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+
+    RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install -D oxc-parser
+
+    FROM devdeps AS build
+    COPY . .
+    RUN pnpm build
+
+    FROM base AS deps
+    COPY ./package.json ./pnpm-lock.yaml ./
+    RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --production
+
+    FROM deps AS deploy
+    COPY --from=build /app/.output ./
+
+    EXPOSE 3000
+    CMD node ./server/index.mjs
+    `,
+  },
 ];
