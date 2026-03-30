@@ -1,5 +1,5 @@
 <script setup>
-import { SearchIcon } from "@lucide/vue";
+import { SearchIcon, XIcon } from "@lucide/vue";
 
 const search = defineModel({ type: String });
 </script>
@@ -8,9 +8,10 @@ const search = defineModel({ type: String });
     <main class="flex flex-col items-center justify-center gap-4 py-12">
         <h1 class="text-3xl font-medium">🐋 Docky</h1>
         <p class="text-additional">Dockerfile snippets for popular frameworks and tools</p>
-        <div class="flex items-center outline outline-secondary bg-bg rounded-xl py-2 px-3 gap-2.5 w-full max-w-md">
+        <div class="flex items-center outline outline-secondary bg-bg rounded-xl py-2 px-3 gap-2.5 w-full max-w-md focus-within:outline-accent duration-200 transition-all">
             <SearchIcon class="size-4 text-additional" />
-            <input type="text" v-model="search" placeholder="Search..." class="w-full outline-0" />
+            <input type="search" v-model="search" placeholder="Search..." class="w-full outline-0" inputmode="search" autofocus />
+            <XIcon @click="search = ''" class="size-4 text-additional duration-200 transition-all" :class="search ? 'cursor-pointer scale-100' : 'cursor-default scale-0'" />
         </div>
     </main>
 </template>
