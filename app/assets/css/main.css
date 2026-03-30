@@ -28,6 +28,15 @@ body {
     overflow: hidden;
 }
 
+.code::after {
+    content: "dockerfile";
+    position: absolute;
+    top: 6px;
+    right: 12px;
+    color: var(--additional);
+    font-size: 14px;
+}
+
 .code::before {
     content: "";
     position: absolute;
