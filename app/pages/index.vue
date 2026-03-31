@@ -7,6 +7,5 @@ const debouncedSearch = refDebounced(search, 200);
 
 <template>
     <Hero v-model="search" />
-
     <Files :search="debouncedSearch" />
 </template>
