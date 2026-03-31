@@ -14,10 +14,29 @@
     background-color: var(--accent);
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
 body {
     background-color: var(--bg);
     color: var(--foreground);
     caret-color: var(--accent);
+    scrollbar-width: thin;
+    scrollbar-gutter: stable;
 }
 
 @theme {
