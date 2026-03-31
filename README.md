@@ -8,7 +8,6 @@
 
 ---
 
-
 ## Quick Start (Development)
 
 ### Install dependencies:
@@ -19,46 +18,47 @@ bun install
 
 ### Start local development server:
 
-``` bash
+```bash
 bun run dev
 ```
 
 ### Lint for errors:
 
-``` bash
+```bash
 bunx lint
 ```
 
 ### Apply lint fixes:
 
-``` bash
+```bash
 bun lint:fix
 ```
 
 ### Format files:
 
-``` bash
+```bash
 bun fmt
 ```
 
 ### Check formatting without changes:
 
-``` bash
+```bash
 bun fmt:check
 ```
+
 ---
 
 ## Features
 
-* **Smart Search**: Find configurations by language, runtime, or framework
-* **One-Click Copy**: Get your Dockerfile into the clipboard instantly
-
+- **Smart Search**: Find configurations by language, runtime, or framework
+- **One-Click Copy**: Get your Dockerfile into the clipboard instantly
 
 ## Tech Stack
 
 Built with a modern stack for maximum performance and developer experience:
-* **Framework**: [Nuxt 4](https://nuxt.com/)
-* **Runtime**: [Bun](https://bun.sh/)
-* **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-* **Highlighting**: [Shiki](https://shiki.style/) (VS Code engine)
-* **Linting & Formatting**: [Oxc](https://oxc.rs/)
+
+- **Framework**: [Nuxt 4](https://nuxt.com/)
+- **Runtime**: [Bun](https://bun.sh/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Highlighting**: [Shiki](https://shiki.style/) (VS Code engine)
+- **Linting & Formatting**: [Oxc](https://oxc.rs/)

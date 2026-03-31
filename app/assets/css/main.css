@@ -1,76 +1,76 @@
 @import "tailwindcss";
 
 :root {
-    --bg: #181820;
-    --foreground: #ffffff;
-    --accent: #649ab6;
-    --secondary: #2a2d30;
-    --additional: #8b8b93;
-    --code: #1e1e2e;
+  --bg: #181820;
+  --foreground: #ffffff;
+  --accent: #649ab6;
+  --secondary: #2a2d30;
+  --additional: #8b8b93;
+  --code: #1e1e2e;
 }
 
 :section {
-    color: var(--foreground);
-    background-color: var(--accent);
+  color: var(--foreground);
+  background-color: var(--accent);
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg);
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--secondary);
-    border-radius: 10px;
+  background: var(--secondary);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent);
+  background: var(--accent);
 }
 
 body {
-    background-color: var(--bg);
-    color: var(--foreground);
-    caret-color: var(--accent);
-    scrollbar-width: thin;
-    scrollbar-gutter: stable;
+  background-color: var(--bg);
+  color: var(--foreground);
+  caret-color: var(--accent);
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
 }
 
 @theme {
-    --color-bg: var(--bg);
-    --color-foreground: var(--foreground);
-    --color-accent: var(--accent);
-    --color-secondary: var(--secondary);
-    --color-additional: var(--additional);
+  --color-bg: var(--bg);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-additional: var(--additional);
 }
 
 .code {
-    position: relative;
-    background-color: var(--code);
-    overflow: hidden;
+  position: relative;
+  background-color: var(--code);
+  overflow: hidden;
 }
 
 .code::after {
-    content: "dockerfile";
-    position: absolute;
-    top: 6px;
-    right: 12px;
-    color: var(--additional);
-    font-size: 14px;
+  content: "dockerfile";
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  color: var(--additional);
+  font-size: 14px;
 }
 
 .code::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(180deg, transparent 0%, var(--code) 100%);
-    width: 100%;
-    height: 48px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(180deg, transparent 0%, var(--code) 100%);
+  width: 100%;
+  height: 48px;
 
-    pointer-events: none;
-    z-index: 1;
+  pointer-events: none;
+  z-index: 1;
 }
