@@ -1,6 +1,6 @@
 export const files = [
   {
-    tags: ["React 19.2.3", "Next.js 16.1.6", "Bun"],
+    tags: ["React 19.2.3", "Next.js 16.1.6", "bun"],
     code: `
       FROM oven/bun:1.1-alpine AS deps
       WORKDIR /app
