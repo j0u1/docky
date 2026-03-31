@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["@vue/devtools-core", "@vue/devtools-kit", "@lucide/vue"],
+      include: ["@vue/devtools-core", "@vue/devtools-kit", "@lucide/vue", "@vueuse/core"],
     },
   },
   shiki: {
@@ -19,7 +19,11 @@ export default defineNuxtConfig({
     head: {
       title: "Docky",
       meta: [
+        { name: "title", content: "Docky" },
         { name: "description", content: "A search engine for production-ready web Dockerfiles" },
+        { name: "theme-color", content: "#181820" },
+        { name: "color-scheme", content: "dark" },
+        { name: "charset", content: "utf-8" },
       ],
       htmlAttrs: {
         lang: "en",
