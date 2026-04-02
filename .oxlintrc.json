@@ -8,12 +8,8 @@
   },
   "rules": {
     "vue/multi-word-component-names": "off",
-    "typescript/no-explicit-any": "warn"
-  },
-  "settings": {
-    "vitest": {
-      "typecheck": true
-    }
+    "typescript/no-explicit-any": "warn",
+    "max-lin": ["warn", { "code": 120 }]
   },
   "env": {
     "builtin": true,
