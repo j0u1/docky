@@ -6,8 +6,9 @@
         class="text-accent hover:brightness-110 duration-300 transition-all"
         to="//d1yy.ru"
         target="_blank"
-        >d1yy</NuxtLink
       >
+        d1yy
+      </NuxtLink>
     </p>
   </footer>
 </template>
