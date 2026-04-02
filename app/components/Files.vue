@@ -51,7 +51,8 @@ const copyToClipboard = async (text) => {
         </div>
         <CopyIcon
           @click="copyToClipboard(file.code)"
-          class="size-4 cursor-pointer duration-300 transition-transform"
+          class="size-4 cursor-pointer duration-300 transition-all hover:brightness-120"
+          :class="{ 'text-accent': copied }"
         />
       </div>
 
