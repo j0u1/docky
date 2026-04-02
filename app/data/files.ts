@@ -1,8 +1,18 @@
 import Bun from "~/components/icons/Bun.vue";
 import Npm from "~/components/icons/Npm.vue";
 import Pnpm from "~/components/icons/Pnpm.vue";
+import Yarn from "~/components/icons/Yarn.vue";
 
-export const files = [
+export const pmIcons = {
+  bun: Bun,
+  pnpm: Pnpm,
+  npm: Npm,
+  yarn: Yarn,
+};
+
+type PackageManager = keyof typeof pmIcons;
+
+export const files: { packageManager: PackageManager; tags: string[]; code: string }[] = [
   {
     packageManager: "bun",
     tags: ["React 19.2.3", "Next.js 16.1.6"],
@@ -171,9 +181,3 @@ export const files = [
     `,
   },
 ];
-
-export const pmIcons = {
-  bun: Bun,
-  pnpm: Pnpm,
-  npm: Npm,
-};
