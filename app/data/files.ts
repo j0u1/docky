@@ -12,7 +12,13 @@ export const pmIcons = {
 
 type PackageManager = keyof typeof pmIcons;
 
-export const files: { packageManager: PackageManager; tags: string[]; code: string }[] = [
+interface File {
+  packageManager: PackageManager;
+  tags: string[];
+  code: string;
+}
+
+export const files: File[] = [
   {
     packageManager: "bun",
     tags: ["React 19.2.3", "Next.js 16.1.6"],
