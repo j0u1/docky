@@ -1,5 +1,5 @@
-<script setup>
-import { files } from "@/data/files";
+<script setup lang="ts">
+import { files, pmIcons } from "@/data/files";
 import { CopyIcon } from "@lucide/vue";
 
 const props = defineProps({
@@ -40,7 +40,14 @@ const copyToClipboard = async (text) => {
     >
       <div class="flex items-center justify-between text-additional">
         <div class="flex gap-2 items-center text-sm">
-          <span v-for="tag in file.tags">{{ tag }}</span>
+          <span class="flex gap-1 items-center">
+            <component :is="pmIcons[file.packageManager]" class="size-4 mt-0.5" />
+            {{ file.packageManager }}
+          </span>
+          <div class="h-3 mt-0.5 w-px bg-additional/50" />
+          <div class="space-x-2">
+            <span v-for="tag in file.tags">{{ tag }}</span>
+          </div>
         </div>
         <CopyIcon
           @click="copyToClipboard(file.code)"

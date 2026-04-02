@@ -1,6 +1,11 @@
+import Bun from "~/components/icons/Bun.vue";
+import Npm from "~/components/icons/Npm.vue";
+import Pnpm from "~/components/icons/Pnpm.vue";
+
 export const files = [
   {
-    tags: ["React 19.2.3", "Next.js 16.1.6", "bun"],
+    packageManager: "bun",
+    tags: ["React 19.2.3", "Next.js 16.1.6"],
     code: `
       FROM oven/bun:1.1-alpine AS deps
       WORKDIR /app
@@ -42,7 +47,8 @@ export const files = [
     `,
   },
   {
-    tags: ["Vue", "Nuxt 4.4.2", "bun"],
+    packageManager: "bun",
+    tags: ["Vue", "Nuxt 4.4.2"],
     code: `
       FROM oven/bun:1 AS build
       WORKDIR /app
@@ -69,7 +75,8 @@ export const files = [
     `,
   },
   {
-    tags: ["React 19.2.0", "Vite 7.3.1", "bun"],
+    packageManager: "bun",
+    tags: ["React 19.2.0", "Vite 7.3.1"],
     code: `
     FROM oven/bun:1.1-alpine AS build
 
@@ -93,7 +100,8 @@ export const files = [
     `,
   },
   {
-    tags: ["Vue", "Nuxt 3.14", "pnpm"],
+    packageManager: "pnpm",
+    tags: ["Vue", "Nuxt 3.14"],
     code: `
     FROM node:20-alpine AS base
     WORKDIR /app
@@ -124,4 +132,48 @@ export const files = [
     CMD node ./server/index.mjs
     `,
   },
+  {
+    packageManager: "bun",
+    tags: ["elysia"],
+    code: `
+    FROM oven/bun AS build
+
+    WORKDIR /app
+
+    # Cache packages installation
+    COPY package.json package.json
+    COPY bun.lock bun.lock
+
+    RUN bun install
+
+    COPY ./src ./src
+
+    ENV NODE_ENV=production
+
+    RUN bun build \
+        --compile \
+        --minify-whitespace \
+        --minify-syntax \
+        --outfile server \
+        src/index.ts
+
+    FROM gcr.io/distroless/base
+
+    WORKDIR /app
+
+    COPY --from=build /app/server server
+
+    ENV NODE_ENV=production
+
+    CMD ["./server"]
+
+    EXPOSE 3000
+    `,
+  },
 ];
+
+export const pmIcons = {
+  bun: Bun,
+  pnpm: Pnpm,
+  npm: Npm,
+};
