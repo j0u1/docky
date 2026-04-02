@@ -62,10 +62,5 @@ const copyToClipboard = async (text) => {
       />
     </div>
   </div>
-  <div
-    v-if="copied"
-    class="fixed bottom-4 right-4 bg-bg outline outline-secondary text-white p-4 rounded-xl"
-  >
-    Скопировано!
-  </div>
+  <Toast v-if="copied" />
 </template>
