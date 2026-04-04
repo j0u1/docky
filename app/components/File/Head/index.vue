@@ -15,7 +15,7 @@ const copyToClipboard = async (text: string) => {
     await navigator.clipboard.writeText(text);
     emit("copied");
   } catch (err) {
-    console.log("Не удалось скопировать: ", err);
+    console.log("Couldn't sync: ", err);
   }
 };
 </script>
