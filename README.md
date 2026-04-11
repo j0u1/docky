@@ -17,13 +17,13 @@ bun install
 ### Start local development server:
 
 ```bash
-bun run dev
+bun dev
 ```
 
 ### Lint for errors:
 
 ```bash
-bunx lint
+bun lint
 ```
 
 ### Apply lint fixes:
