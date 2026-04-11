@@ -23,71 +23,69 @@ export const files: FileType[] = [
     packageManager: "bun",
     tags: ["React 19.2.3", "Next.js 16.1.6"],
     code: `
-      FROM oven/bun:1.1-alpine AS deps
-      WORKDIR /app
+    FROM oven/bun:1.1-alpine AS deps
+    WORKDIR /app
 
-      RUN bun install --frozen-lockfile
+    RUN bun install --frozen-lockfile
 
-      FROM oven/bun:1.1-alpine AS builder
-      WORKDIR /app
+    FROM oven/bun:1.1-alpine AS builder
+    WORKDIR /app
 
-      COPY --from=deps /app/node_modules ./node_modules
-      COPY . .
+    COPY --from=deps /app/node_modules ./node_modules
+    COPY . .
 
-      ENV NEXT_TELEMETRY_DISABLED 1
+    ENV NEXT_TELEMETRY_DISABLED 1
 
-      RUN bun run build
+    RUN bun run build
 
-      FROM oven/bun:1.1-alpine AS runner
-      WORKDIR /app
+    FROM oven/bun:1.1-alpine AS runner
+    WORKDIR /app
 
-      ENV NODE_ENV production
-      ENV NEXT_TELEMETRY_DISABLED 1
+    ENV NODE_ENV production
+    ENV NEXT_TELEMETRY_DISABLED 1
 
-      RUN addgroup --system --gid 1001 nodejs
-      RUN adduser --system --uid 1001 nextjs
+    RUN addgroup --system --gid 1001 nodejs
+    RUN adduser --system --uid 1001 nextjs
 
-      COPY --from=builder /app/public ./public
-      COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-      COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+    COPY --from=builder /app/public ./public
+    COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+    COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-      USER nextjs
+    USER nextjs
 
-      EXPOSE 3000
+    EXPOSE 3000
 
-      ENV PORT 3000
+    ENV PORT 3000
 
-      ENV HOSTNAME "0.0.0.0"
+    ENV HOSTNAME "0.0.0.0"
 
-      CMD ["bun", "server.js"]
+    CMD ["bun", "server.js"]
     `,
   },
   {
     packageManager: "bun",
     tags: ["Vue", "Nuxt 4.4.2"],
     code: `
-      FROM oven/bun:1 AS build
-      WORKDIR /app
+    FROM oven/bun:alpine AS build
+    WORKDIR /app
 
-      COPY package.json bun.lock ./
+    COPY package.json bun.lock ./
+    RUN bun install --frozen-lockfile --ignore-scripts
 
-      RUN bun install --frozen-lockfile --ignore-scripts
+    COPY . .
 
-      COPY . .
+    ENV NITRO_PRESET=bun
+    RUN bun --bun run build
 
-      RUN bun --bun run build
+    FROM oven/bun:alpine AS production
+    WORKDIR /app
 
-      FROM oven/bun:1 AS production
-      WORKDIR /app
+    COPY --from=build /app/.output /app
 
-      COPY --from=build /app/.output /app
-
-      RUN cd /app/server && \
-          rm -rf node_modules && \
-          bun install --ignore-scripts
-
-      EXPOSE 3000/tcp
-      ENTRYPOINT [ "bun", "/app/server/index.mjs" ]
+    ENV HOST=0.0.0.0
+    ENV PORT=3000
+    EXPOSE 3000/tcp
+    ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
     `,
   },
   {
