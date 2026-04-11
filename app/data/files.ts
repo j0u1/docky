@@ -66,28 +66,26 @@ export const files: FileType[] = [
     packageManager: "bun",
     tags: ["Vue", "Nuxt 4.4.2"],
     code: `
-      FROM oven/bun:1 AS build
-      WORKDIR /app
+    FROM oven/bun:alpine AS build
+    WORKDIR /app
 
-      COPY package.json bun.lock ./
+    COPY package.json bun.lock ./
+    RUN bun install --frozen-lockfile --ignore-scripts
 
-      RUN bun install --frozen-lockfile --ignore-scripts
+    COPY . .
 
-      COPY . .
+    ENV NITRO_PRESET=bun
+    RUN bun --bun run build
 
-      RUN bun --bun run build
+    FROM oven/bun:alpine AS production
+    WORKDIR /app
 
-      FROM oven/bun:1 AS production
-      WORKDIR /app
+    COPY --from=build /app/.output /app
 
-      COPY --from=build /app/.output /app
-
-      RUN cd /app/server && \
-          rm -rf node_modules && \
-          bun install --ignore-scripts
-
-      EXPOSE 3000/tcp
-      ENTRYPOINT [ "bun", "/app/server/index.mjs" ]
+    ENV HOST=0.0.0.0
+    ENV PORT=3000
+    EXPOSE 3000/tcp
+    ENTRYPOINT [ "bun", "--bun", "run", "/app/server/index.mjs" ]
     `,
   },
   {
