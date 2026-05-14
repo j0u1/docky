@@ -25,6 +25,23 @@ useHead({
     },
   ],
 });
+
+if (import.meta.client) {
+  console.info(
+    `
+  ██████╗  ██████╗  ██████╗██╗  ██╗██╗   ██╗
+  ██╔══██╗██╔═══██╗██╔════╝██║ ██╔╝╚██╗ ██╔╝
+  ██║  ██║██║   ██║██║     █████╔╝  ╚████╔╝
+  ██║  ██║██║   ██║██║     ██╔═██╗   ╚██╔╝
+  ██████╔╝╚██████╔╝╚██████╗██║  ██╗   ██║
+  ╚═════╝  ╚═════╝  ╚═════╝╚═╝  ╚═╝   ╚═╝
+
+  Add your Dockerfile:
+  %chttps://github.com/j0u1/docky/pulls%c
+  `,
+    "background:#181820;color:#649ab6;padding:2px 6px;border-radius:4px;font-weight:semibold;",
+  );
+}
 </script>
 
 <template>
