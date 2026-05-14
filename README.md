@@ -2,6 +2,8 @@
 
 🇷🇺 [Русская документация](docs/README_ru.md)
 
+<img width="2824" height="1556" alt="preview" src="https://github.com/user-attachments/assets/8b03b18e-82bf-4cde-9ec8-7aa40e3d3f96" />
+
 **Docky** is a lightweight search engine for production-ready Docker configurations across any stack. Stop copying broken AI-generated configs and start using battle-tested templates.
 
 ---
