@@ -2,6 +2,8 @@
 
 **Docky** — легковесный поисковик по готовым Docker-конфигурациям для любых стеков через поиск. Забудьте о копировании кривых конфигов из ИИ.
 
+<img width="2824" height="1556" alt="preview" src="https://github.com/user-attachments/assets/8b03b18e-82bf-4cde-9ec8-7aa40e3d3f96" />
+
 ---
 
 ## Быстрый старт (Development)
