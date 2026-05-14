@@ -25,7 +25,13 @@ const onCopied = () => {
 
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 duration-300 transition-all gap-4 lg:gap-6">
-    <File v-for="(file, index) in filteredFiles" :key="index" :file="file" :copied="copied" @copied="onCopied" />
+    <File
+      v-for="(file, index) in filteredFiles"
+      :key="index"
+      :file="file"
+      :copied="copied"
+      @copied="onCopied"
+    />
   </div>
   <Toast :isCopy="copied" />
 </template>

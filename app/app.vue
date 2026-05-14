@@ -9,7 +9,8 @@ useSeoMeta({
   twitterDescription: "A search engine for production-ready web Dockerfiles",
   twitterImage: "/images/twitter_cover.webp",
   twitterCard: "summary",
-  keywords: "docky, docker, search, engine, web, dockerfile, production-ready, diy, d1yy, докер, докерфайл, javascript, typescript, react, vue, bun",
+  keywords:
+    "docky, docker, search, engine, web, dockerfile, production-ready, diy, d1yy, докер, докерфайл, javascript, typescript, react, vue, bun",
 });
 
 useHead({
