@@ -1,8 +1,17 @@
 # 🐳 Docky (Доки)
 
-**Docky** — легковесный поисковик по готовым Docker-конфигурациям для любых стеков через поиск. Забудьте о копировании кривых конфигов из ИИ.
+**Docky** - лёгкий поисковик по готовым Docker-конфигурациям для любых стеков через поиск. Забудьте о копировании кривых конфигов из ИИ.
 
 <img alt="preview" src="https://github.com/user-attachments/assets/8b03b18e-82bf-4cde-9ec8-7aa40e3d3f96" />
+
+🇬🇧 [English documentation](../README.md)
+
+## Как добавить свой Dockerfile
+ 
+1. Открой `/app/data/files.ts`
+2. Укажи пакетный менеджер
+3. Добавь нужные теги (например, `Elysia`, `Prisma`)
+4. Вставь код Dockerfile внутрь шаблонной строки и отформатируй его командой `bun fmt`
 
 ## Быстрый старт (Development)
 
@@ -53,8 +62,6 @@ bun fmt:check
 
 Проект построен на современном стеке для максимальной скорости:
 
-- **Framework**: [Nuxt 4](https://nuxt.com/)
-- **Runtime**: [Bun](https://bun.sh/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [Nuxt UI](https://ui.nuxt.com/)
-- **Highlighting**: [Shiki](https://shiki.style/) (VS Code engine)
-- **Linting & Formatting**: [Oxc](https://oxc.rs/)
+`TypeScript`, `Nuxt`, `Bun`, `TailwindCSS`, `Shiki`, `Oxc`
+
+![stack](https://skills.syvixor.com/api/icons?perline=15&i=ts,nuxt,bun,tailwindcss,shiki,oxc)

@@ -6,6 +6,13 @@
 
 🇷🇺 [Русская документация](docs/README_ru.md)
 
+## How to Add Your Dockerfile
+
+1. Open `/app/data/files.ts`
+2. Add the package manager
+3. Add relevant tags (e.g. `Elysia`, `Prisma`)
+4. Add your Dockerfile code inside a template literal and format it with `bun fmt`
+
 ## Quick Start (Development)
 
 ### Install dependencies:
@@ -55,8 +62,6 @@ bun fmt:check
 
 Built with a modern stack for maximum performance and developer experience:
 
-- **Framework**: [Nuxt 4](https://nuxt.com/)
-- **Runtime**: [Bun](https://bun.sh/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Highlighting**: [Shiki](https://shiki.style/) (VS Code engine)
-- **Linting & Formatting**: [Oxc](https://oxc.rs/)
+`TypeScript`, `Nuxt`, `Bun`, `TailwindCSS`, `Shiki`, `Oxc`
+
+![stack](https://skills.syvixor.com/api/icons?perline=15&i=ts,nuxt,bun,tailwindcss,shiki,oxc)
