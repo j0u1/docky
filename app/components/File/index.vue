@@ -16,7 +16,7 @@ const props = defineProps<{
     <Shiki
       :code="file.code"
       lang="dockerfile"
-      class="relative rounded-xl p-4 overflow-x-auto shadow-lg code max-h-92 overflow-y-hidden"
+      class="relative rounded-xl p-4 overflow-x-auto shadow-lg code min-h-82 max-h-82 overflow-y-hidden"
     />
   </div>
 </template>
