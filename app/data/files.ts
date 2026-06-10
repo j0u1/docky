@@ -92,7 +92,7 @@ export const files: FileType[] = [
     packageManager: "bun",
     tags: ["React 19.2.0", "Vite 7.3.1"],
     code: `
-    FROM oven/bun:1.1-alpine AS build
+    FROM oven/bun:alpine AS build
 
     WORKDIR /app
 
