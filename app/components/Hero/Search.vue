@@ -8,7 +8,7 @@ const search = defineModel({ type: String, default: "" });
   <div
     class="flex items-center outline outline-secondary bg-bg rounded-xl py-2 px-3 gap-2.5 w-full max-w-md focus-within:outline-accent duration-200 transition-all"
   >
-    <SearchIcon class="size-4 text-additional" />
+    <SearchIcon class="size-4 text-accent" />
     <input
       type="search"
       v-model="search"
