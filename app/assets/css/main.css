@@ -31,12 +31,15 @@ section {
   background: var(--accent);
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
 body {
   background-color: var(--bg);
   color: var(--foreground);
   caret-color: var(--accent);
   scrollbar-width: thin;
-  scrollbar-gutter: stable;
 }
 
 @theme {
