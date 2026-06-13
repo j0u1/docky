@@ -2,7 +2,7 @@
 
 **Docky** - лёгкий поисковик по готовым Docker-конфигурациям для любых стеков через поиск. Забудьте о копировании кривых конфигов из ИИ.
 
-<img alt="preview" src="https://github.com/user-attachments/assets/8b03b18e-82bf-4cde-9ec8-7aa40e3d3f96" />
+<img alt="preview" src="https://github.com/user-attachments/assets/bca2e505-3dd6-4f1c-8ba5-d3d6bae685cc" />
 
 🇬🇧 [English documentation](../README.md)
 
