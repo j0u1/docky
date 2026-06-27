@@ -10,7 +10,11 @@ useSeoMeta({
   title: "Error — Docky",
 });
 
-const handler = () => clearError({ redirect: "/" });
+const router = useRouter();
+const handler = async () => {
+  await clearError();
+  await router.back();
+};
 </script>
 
 <template>
@@ -31,6 +35,6 @@ const handler = () => clearError({ redirect: "/" });
     >
       <ArrowLeftIcon class="size-4 shrink-0 group-hover:translate-x-1.5 transition-transform" />
       Go back
-  </button>
+    </button>
   </main>
 </template>
