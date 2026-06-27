@@ -9,11 +9,6 @@
   --code: #1e1e2e;
 }
 
-section {
-  color: var(--foreground);
-  background-color: var(--accent);
-}
-
 ::-webkit-scrollbar {
   width: 8px;
 }
