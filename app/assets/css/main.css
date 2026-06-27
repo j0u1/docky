@@ -37,6 +37,10 @@ body {
   scrollbar-width: thin;
 }
 
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
 @theme {
   --color-bg: var(--bg);
   --color-foreground: var(--foreground);
