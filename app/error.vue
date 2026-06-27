@@ -28,7 +28,6 @@ const handler = () => clearError({ redirect: "/" });
     <button
       @click="handler"
       class="group flex items-center gap-2.5 text-additional cursor-pointer duration-300 transition-colors hover:text-accent"
-      title="Clears and resets errors"
     >
       <ArrowLeftIcon class="size-4 shrink-0 group-hover:translate-x-1.5 transition-transform" />
       Go back
