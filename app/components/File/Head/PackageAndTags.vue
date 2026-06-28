@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { pmIcons } from "~/data/files";
-
-type PackageManager = keyof typeof pmIcons;
+import { pmIcons } from "~/data/packetManagers";
+import type { PackageManager } from "~/types/pmType";
 
 defineProps<{
   file: {

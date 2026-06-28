@@ -1,23 +1,13 @@
 <script setup lang="ts">
 import { CopyIcon } from "@lucide/vue";
 import PackageAndTags from "./PackageAndTags.vue";
-import { type FileType } from "~/data/files";
+import type { FileType } from "~/types/fileType.js";
 
 defineProps<{
   file: FileType;
-  copied: boolean;
 }>();
 
-const emit = defineEmits<{ copied: [] }>();
-
-const copyToClipboard = async (text: string) => {
-  try {
-    await navigator.clipboard.writeText(text);
-    emit("copied");
-  } catch (err) {
-    console.log("Couldn't sync: ", err);
-  }
-};
+const { copied, copyToClipboard } = useClipboard();
 </script>
 
 <template>
@@ -29,4 +19,6 @@ const copyToClipboard = async (text: string) => {
       :class="{ 'text-accent': copied }"
     />
   </div>
+
+  <Toast :isCopy="copied" />
 </template>

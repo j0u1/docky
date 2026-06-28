@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { type FileType } from "~/data/files";
+import type { FileType } from "~/types/fileType";
 import Head from "./Head/index.vue";
-
-const emit = defineEmits<{ copied: [] }>();
 
 const props = defineProps<{
   file: FileType;
-  copied: boolean;
 }>();
 </script>
 
 <template>
   <div class="flex flex-col gap-4 outline outline-secondary p-4 rounded-2xl bg-bg">
-    <Head :file="file" :copied="copied" @copied="emit('copied')" />
+    <Head :file="file" />
     <Shiki
       :code="file.code"
       lang="dockerfile"
