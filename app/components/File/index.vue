@@ -19,4 +19,5 @@ const props = defineProps<{
       class="relative rounded-xl p-4 overflow-x-auto shadow-lg code min-h-82 max-h-82 overflow-y-hidden"
     />
   </div>
+  <Toast :isCopy="copied" />
 </template>

@@ -42,5 +42,4 @@ const onCopied = () => {
   <section v-else class="flex items-center justify-center">
     <p class="mx-auto text-additional">No such Dockerfile here</p>
   </section>
-  <Toast :isCopy="copied" />
 </template>
