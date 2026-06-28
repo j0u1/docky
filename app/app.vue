@@ -43,8 +43,7 @@ if (import.meta.client) {
   ╚═════╝  ╚═════╝  ╚═════╝╚═╝  ╚═╝   ╚═╝
 
   Add your Dockerfile:
-  %chttps://github.com/j0u1/docky/pulls%c
-  `,
+  %chttps://github.com/j0u1/docky/pulls`,
     "background:#181820;color:#649ab6;padding:2px 6px;border-radius:4px;font-weight:semibold;",
   );
 }
