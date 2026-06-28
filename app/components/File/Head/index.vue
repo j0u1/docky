@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { CopyIcon } from "@lucide/vue";
-import PackageAndTags from "./PackageAndTags.vue";
 import type { FileType } from "~/types/fileType.js";
 
 defineProps<{
@@ -12,7 +11,7 @@ const { copied, copyToClipboard } = useClipboard();
 
 <template>
   <div class="flex items-center justify-between text-additional">
-    <PackageAndTags :file="file" />
+    <FileHeadPackageAndTags :file="file" />
     <CopyIcon
       @click="copyToClipboard(file.code)"
       class="size-4 cursor-pointer duration-300 transition-all hover:brightness-120"
