@@ -16,8 +16,8 @@ const filteredFiles = computed(() => {
     (file) =>
       file.tags.some((tag) => tag.toLowerCase().includes(search)) ||
       file.packageManager.toLowerCase().includes(search),
-    );
-  });
+  );
+});
 
 const onCopied = () => {
   copied.value = true;
@@ -41,4 +41,6 @@ const onCopied = () => {
   <section v-else class="flex items-center justify-center">
     <p class="mx-auto text-additional">No such Dockerfile here</p>
   </section>
+
+  <Toast :isCopy="copied" />
 </template>
