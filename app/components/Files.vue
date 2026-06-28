@@ -11,14 +11,13 @@ const props = defineProps({
 const copied = ref(false);
 
 const filteredFiles = computed(() => {
-  const search = props.search?.toLocaleLowerCase() || "";
-  return files.filter((file) => {
-    return (
+  const search = props.search?.toLowerCase().trim() || "";
+  return files.filter(
+    (file) =>
       file.tags.some((tag) => tag.toLowerCase().includes(search)) ||
-      file.packageManager.toLocaleLowerCase().includes(search)
+      file.packageManager.toLowerCase().includes(search),
     );
   });
-});
 
 const onCopied = () => {
   copied.value = true;
