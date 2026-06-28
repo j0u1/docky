@@ -11,6 +11,7 @@ useSeoMeta({
   twitterCard: "summary_large_image",
   keywords:
     "docky, docker, search, engine, web, dockerfile, production-ready, diy, d1yy, докер, докерфайл, javascript, typescript, react, vue, bun",
+  author: "d1yy",
 });
 
 useHead({
