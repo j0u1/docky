@@ -7,8 +7,8 @@ useSeoMeta({
   ogUrl: "docky.d1yy.ru",
   twitterTitle: "Docky",
   twitterDescription: "A search engine for production-ready web Dockerfiles",
-  twitterImage: "/images/twitter_cover.webp",
-  twitterCard: "summary",
+  twitterImage: "/images/cover.webp",
+  twitterCard: "summary_large_image",
   keywords:
     "docky, docker, search, engine, web, dockerfile, production-ready, diy, d1yy, докер, докерфайл, javascript, typescript, react, vue, bun",
 });
