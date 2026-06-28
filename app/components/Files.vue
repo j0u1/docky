@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { files } from "@/data/files";
-
 const props = defineProps({
   search: {
     type: String,
@@ -8,14 +6,7 @@ const props = defineProps({
   },
 });
 
-const filteredFiles = computed(() => {
-  const search = props.search?.toLowerCase().trim() || "";
-  return files.filter(
-    (file) =>
-      file.tags.some((tag) => tag.toLowerCase().includes(search)) ||
-      file.packageManager.toLowerCase().includes(search),
-  );
-});
+const { filteredFiles } = useFilteredFiles(toRef(props, "search"));
 </script>
 
 <template>
