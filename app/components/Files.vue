@@ -13,7 +13,10 @@ const copied = ref(false);
 const filteredFiles = computed(() => {
   const search = props.search?.toLocaleLowerCase() || "";
   return files.filter((file) => {
-    return file.tags.some((tag) => tag.toLowerCase().includes(search));
+    return (
+      file.tags.some((tag) => tag.toLowerCase().includes(search)) ||
+      file.packageManager.toLocaleLowerCase().includes(search)
+    );
   });
 });
 
@@ -24,8 +27,17 @@ const onCopied = () => {
 </script>
 
 <template>
-  <section v-if="filteredFiles.length" class="grid grid-cols-1 md:grid-cols-2 duration-300 transition-all gap-4 lg:gap-6">
-    <File v-for="(file, index) in filteredFiles" :key="index" :file="file" :copied="copied" @copied="onCopied" />
+  <section
+    v-if="filteredFiles.length"
+    class="grid grid-cols-1 md:grid-cols-2 duration-300 transition-all gap-4 lg:gap-6"
+  >
+    <File
+      v-for="(file, index) in filteredFiles"
+      :key="index"
+      :file="file"
+      :copied="copied"
+      @copied="onCopied"
+    />
   </section>
   <section v-else class="flex items-center justify-center">
     <p class="mx-auto text-additional">No such Dockerfile here</p>
